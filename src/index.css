@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+::root {
+	--item-height: 40px;
+	--list-item-width: 100%;
+	--align-list: left;
+	--music-info-width: 75;
+}
+
+.music-list {
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: var(--align-list);
+	justify-content: flex-start;
+	padding: 1rem 0.2rem;
+	background-color: #1b0a0a;
+}
+
+.music-list-item {
+	width: var(--list-item-width);
+	max-height: var(--item-height);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	margin: 0.3rem 0;
+	padding: 0.3rem 0 0.3rem 40px;
+}
+
+.music-icon {
+	position: absolute;
+	left: 0;
+	color: #00ccff;
+	width: 42px;
+	height: 42px;
+	padding: 0.3rem;
+}
+
+.option-icon {
+	position: absolute;
+	right: 0;
+	color: #00ccff;
+}
+
+.music-info {
+	width: 100%;
+	padding: 0 2rem 0 0.5rem;
+	text-decoration: none;
+}
+
+.music-list-item .title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.3rem;
+	font-weight: 500;
+	font-family: Arial;
+	color: #ededdf;
+}
+
+.music-list-item .artist {
+	font-size: 0.7rem;
+	font-weight: 400;
+	font-family: Arial;
+	color: #f0f1e3;
+}
+
+.options {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	display: flex;
+	min-height: 100px;
+	min-width: 150px;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: left;
+	padding: 1rem;
+	background: #000;
+	box-shadow: 0 0 3px 1px rgba(255,255,255,0.2);
+	z-index: 999;
+}
+
+.option {
+	color: #fff;
+	padding: 0.3rem 0;
+}
+
+@media only screen and (min-width: 600px) {
+	:root {
+		--list-item-width: 60%;
+		--align-list: center;
+		--music-info-width: 85%;
+	}
+}
