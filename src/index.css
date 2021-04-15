@@ -11,15 +11,25 @@
 	--music-info-width: 75;
 }
 
+#app {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+}
+
 .music-list {
 	width: 100vw;
 	min-height: 100vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: var(--align-list);
 	justify-content: flex-start;
 	padding: 1rem 0.2rem;
-	background-color: #1b0a0a;
+	background-color: #050505;
 }
 
 .music-list-item {

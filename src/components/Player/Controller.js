@@ -5,11 +5,13 @@ import { ReactComponent as SkipForwardIcon } from '../../icons/skip-forward.svg'
 import { ReactComponent as SkipBackIcon } from '../../icons/skip-back.svg'
 import { ReactComponent as ShuffleIcon } from '../../icons/shuffle.svg'
 import { ReactComponent as RepeatIcon } from '../../icons/repeat.svg'
+import { ReactComponent as MoreIcon } from '../../icons/more-vertical.svg'
 
-const Controller= ({ playing, setPlaying, skipBack, skipForward }) => {
+const Controller= ({ pullDown, playing, setPlaying, skipBack, skipForward }) => {
 	const playPause = useRef(null)
 	
 	return (
+		<>
 		<div className="controller">
 			<RepeatIcon />
 			<SkipBackIcon onClick={skipBack} />
@@ -24,6 +26,16 @@ const Controller= ({ playing, setPlaying, skipBack, skipForward }) => {
 			</div>
 			<SkipForwardIcon onClick={skipForward} />
 			<ShuffleIcon />
+		</div>
+		<MoreControlls pullDown={pullDown} />
+		</>
+	)
+}
+
+const MoreControlls = ({ pullDown }) => {
+	return (
+		<div className="back">
+			<MoreIcon  onClick={() => pullDown(3) } />
 		</div>
 	)
 }

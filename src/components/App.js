@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Player from './Player/Player'
 import MusicList from './MusicList'
 import '../index.css'
 
 const App = () => {
-	const [currentSongIndex, setCurrentSongIndex] = useState(0)
+	const [currentSongIndex, setCurrentSongIndex] = useState(1)
+	const [showPlayer, setShowPlayer] = useState(false)
+	const [play, setPlay] = useState(false)
+	
+	const show = (id, playNow) => {
+		setCurrentSongIndex(id-1)
+		setShowPlayer(true)
+		setPlay(playNow)
+	}
+	
+	const pullDown = (id) => {
+		setShowPlayer(false)
+	}
+	
 	const [musics, setMusics] = useState([
 		{
 			id: 1,
@@ -41,10 +54,10 @@ const App = () => {
 		<Router>
 			<Switch>
 				<Route exact path="/">
-					<MusicList musics={musics} />
-				</Route>
-				<Route exact path="/player">
-					<Player skipBack={skipBack} skipForward={skipForward} musics={musics} currentSongIndex={currentSongIndex} />
+					<>
+						<MusicList show={show} musics={musics} />
+						<Player show={show} play={play} setShowPlayer={setShowPlayer} pullDown={pullDown} showPlayer={showPlayer} skipBack={skipBack} skipForward={skipForward} musics={musics} currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} />
+					</>
 				</Route>
 			</Switch>
 		</Router>
